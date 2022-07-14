@@ -12,7 +12,7 @@ router = APIRouter(
 get_db = database.get_db
 
 
-# todo: difference between post and put
+# post used for create, put used for updates
 @router.post("/", status_code=status.HTTP_200_OK, response_model=schemas.ShowUser)
 async def create_user(request: schemas.UserBase, db: Session = Depends(get_db)):
     return users.create(request, db)
